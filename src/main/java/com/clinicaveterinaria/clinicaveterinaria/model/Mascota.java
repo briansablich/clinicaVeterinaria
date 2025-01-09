@@ -20,7 +20,7 @@ public class Mascota {
     private String raza;
     private String color;
     @ManyToOne
-    @JoinColumn(name="idMascota")
+    @JoinColumn(name="idDuenio")
     private Duenio duenio;
     
 }
