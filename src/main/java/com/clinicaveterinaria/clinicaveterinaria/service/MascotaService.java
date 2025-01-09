@@ -1,5 +1,6 @@
 package com.clinicaveterinaria.clinicaveterinaria.service;
 
+import com.clinicaveterinaria.clinicaveterinaria.dto.MascoDuenioDTO;
 import com.clinicaveterinaria.clinicaveterinaria.model.Mascota;
 import com.clinicaveterinaria.clinicaveterinaria.repository.IMascotaRepository;
 import java.util.List;
@@ -45,6 +46,22 @@ public class MascotaService implements IMascotaService {
     @Override
     public Mascota findMascota(Long idMascota) {
         return iMascoRepo.findById(idMascota).orElse(null);
+    }
+
+    @Override
+    public MascoDuenioDTO findMascoDuenioDTO(Long idMascota) {
+        Mascota mascoAux = iMascoRepo.findById(idMascota).orElse(null);
+        if(mascoAux == null){
+            return null;
+        } else {
+            MascoDuenioDTO mdDTO = new MascoDuenioDTO();
+            mdDTO.setApellidoDuenio(mascoAux.getDuenio().getApellido());
+            mdDTO.setNombreDuenio(mascoAux.getDuenio().getNombre());
+            mdDTO.setEspecie(mascoAux.getEspecie());
+            mdDTO.setRaza(mascoAux.getRaza());
+            mdDTO.setNombreMascota(mascoAux.getNombre());
+            return mdDTO;
+        }
     }
 
 }
