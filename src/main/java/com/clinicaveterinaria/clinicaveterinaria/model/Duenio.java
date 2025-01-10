@@ -21,4 +21,11 @@ public class Duenio {
     private String celular;
     @OneToMany(mappedBy="duenio")
     private List<Mascota> listaMascotas;
+
+    @Override
+    public String toString() {
+        return "Duenio{" + "nombre=" + nombre + ", apellido=" + apellido + ", listaMascotas=" + listaMascotas + '}';
+    }
+    
+    
 }

@@ -22,5 +22,12 @@ public class Mascota {
     @ManyToOne
     @JoinColumn(name="idDuenio")
     private Duenio duenio;
+
+    @Override
+    public String toString() {
+        return "Mascota{" + "nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", duenio:" + duenio.getNombre() + '}';
+    }
+    
+    
     
 }
