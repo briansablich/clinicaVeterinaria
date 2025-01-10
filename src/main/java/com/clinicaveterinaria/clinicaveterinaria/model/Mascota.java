@@ -1,5 +1,6 @@
 package com.clinicaveterinaria.clinicaveterinaria.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class Mascota {
     private String color;
     @ManyToOne
     @JoinColumn(name="idDuenio")
+    @JsonBackReference
     private Duenio duenio;
 
     @Override

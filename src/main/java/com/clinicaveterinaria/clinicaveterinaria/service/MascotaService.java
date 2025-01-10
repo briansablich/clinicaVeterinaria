@@ -1,6 +1,7 @@
 package com.clinicaveterinaria.clinicaveterinaria.service;
 
 import com.clinicaveterinaria.clinicaveterinaria.dto.MascoDuenioDTO;
+import com.clinicaveterinaria.clinicaveterinaria.model.Duenio;
 import com.clinicaveterinaria.clinicaveterinaria.model.Mascota;
 import com.clinicaveterinaria.clinicaveterinaria.repository.IMascotaRepository;
 import java.util.List;
@@ -13,14 +14,20 @@ public class MascotaService implements IMascotaService {
     
     @Autowired
     private final IMascotaRepository iMascoRepo;
+    
+    @Autowired
+    private final IDuenioService iDuenioServ;
 
-    public MascotaService(IMascotaRepository iMascoRepo) {
+    public MascotaService(IMascotaRepository iMascoRepo, IDuenioService iDuenioServ) {
         this.iMascoRepo = iMascoRepo;
+        this.iDuenioServ = iDuenioServ;
     }
     
     
     @Override
     public void saveMascota(Mascota masco) {
+        Duenio duenioAux = iDuenioServ.findDuenio(masco.getDuenio().getIdDuenio());
+        masco.setDuenio(duenioAux);
         iMascoRepo.save(masco);
     }
 

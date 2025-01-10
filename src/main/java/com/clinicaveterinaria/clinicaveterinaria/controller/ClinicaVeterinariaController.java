@@ -55,8 +55,8 @@ public class ClinicaVeterinariaController {
     
     @GetMapping("/mascotas/traerporraza/{cadena}")
     @ResponseBody
-    public Mascota traerMascotaPorRaza(@PathVariable String cadena){
-        return (Mascota)ims.getMascotasPorRaza(cadena);
+    public List<Mascota> traerMascotaPorRaza(@PathVariable String cadena){
+        return ims.getMascotasPorRaza(cadena);
     }
     
     @GetMapping("/mascotas/traerporid")

@@ -1,5 +1,6 @@
 package com.clinicaveterinaria.clinicaveterinaria.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Duenio {
     private String apellido;
     private String celular;
     @OneToMany(mappedBy="duenio")
+    @JsonManagedReference
     private List<Mascota> listaMascotas;
 
     @Override
