@@ -38,4 +38,9 @@ public class DuenioService implements IDuenioService{
         return iDueRepo.findById(idDuenio).orElse(null);
     }
 
+    @Override
+    public void deleteDuenio(Long idDuenio) {
+        iDueRepo.deleteById(idDuenio);
+    }
+
 }

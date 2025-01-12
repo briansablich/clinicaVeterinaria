@@ -12,4 +12,5 @@ public interface IMascotaService {
     public Mascota editMascota(Mascota masco);
     public Mascota findMascota(Long idMascota);
     public MascoDuenioDTO findMascoDuenioDTO(Long idMascota);
+    public void deleteMascota(Long idMascota);
 }

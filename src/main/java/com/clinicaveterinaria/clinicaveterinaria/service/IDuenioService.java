@@ -9,4 +9,5 @@ public interface IDuenioService {
     public List<Duenio> getDuenios();
     public Duenio editDuenio(Duenio duen);
     public Duenio findDuenio(Long idDuenio);
+    public void deleteDuenio(Long idDuenio);
 }

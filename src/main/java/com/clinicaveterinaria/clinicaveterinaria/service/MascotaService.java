@@ -71,4 +71,9 @@ public class MascotaService implements IMascotaService {
         }
     }
 
+    @Override
+    public void deleteMascota(Long idMascota) {
+        iMascoRepo.deleteById(idMascota);
+    }
+
 }
