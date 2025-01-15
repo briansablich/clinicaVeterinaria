@@ -2,7 +2,7 @@ version: '3'
 
 services:
   clinicaveterinaria:
-    build: clinicaveterinaria
+    build: .
     mem_limit: 512m
     ports:
       - "8080:8080"
