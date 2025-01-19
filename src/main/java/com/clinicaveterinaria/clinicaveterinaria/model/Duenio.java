@@ -26,7 +26,7 @@ public class Duenio {
 
     @Override
     public String toString() {
-        return "Duenio{" + "nombre=" + nombre + ", apellido=" + apellido + ", listaMascotas=" + listaMascotas + '}';
+        return "Duenio{" + "nombre=" + nombre + ", apellido=" + apellido + '}';
     }
     
     

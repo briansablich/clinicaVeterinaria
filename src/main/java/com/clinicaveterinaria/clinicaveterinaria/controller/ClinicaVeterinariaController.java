@@ -23,7 +23,7 @@ public class ClinicaVeterinariaController {
     
     @Autowired
     private final IDuenioService ids;
-
+    
     public ClinicaVeterinariaController(IMascotaService ims, IDuenioService ids) {
         this.ims = ims;
         this.ids = ids;
