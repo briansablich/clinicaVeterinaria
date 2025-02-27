@@ -65,6 +65,12 @@ public class ClinicaVeterinariaController {
     public List<Duenio> traerDuenios() {
         return ids.getDuenios();
     }
+    
+    @GetMapping("/duenio/traer/{idDuenio}")
+    @ResponseBody
+    public Duenio traerDuenioPorId(@PathVariable Long idDuenio) {
+        return ids.findDuenio(idDuenio);
+    }
 
     @PostMapping("/mascotas/crear")
     public String crearMascota(@RequestBody Mascota mascota) {
