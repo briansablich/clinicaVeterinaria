@@ -49,6 +49,16 @@ public class ClinicaVeterinariaController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dueño no encontrado");
         }
     }
+    
+    @DeleteMapping("/mascotas/eliminar/{id}")
+    public ResponseEntity<String> eliminarMascota(@PathVariable Long id) {
+        if (ims.findMascota(id) != null) {
+            ims.deleteMascota(id);
+            return ResponseEntity.ok("Mascota eliminada correctamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mascota no encontrada");
+        }
+    }
 
     @GetMapping("/duenio/traer")
     @ResponseBody
