@@ -95,5 +95,11 @@ public class ClinicaVeterinariaController {
     public MascoDuenioDTO traerDTO(@RequestParam Long idmascota) {
         return ims.findMascoDuenioDTO(idmascota);
     }
+    
+    @GetMapping("/mascotas/traermascotaporid")
+    @ResponseBody
+    public Mascota traerMascotaPorRaza(@RequestParam Long idmascota) {
+        return ims.findMascota(idmascota);
+    }
 
 }
