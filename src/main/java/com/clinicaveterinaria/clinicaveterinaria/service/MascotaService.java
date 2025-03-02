@@ -8,13 +8,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class MascotaService implements IMascotaService {
-    
+
     @Autowired
     private final IMascotaRepository iMascoRepo;
-    
+
     @Autowired
     private final IDuenioService iDuenioServ;
 
@@ -22,12 +21,13 @@ public class MascotaService implements IMascotaService {
         this.iMascoRepo = iMascoRepo;
         this.iDuenioServ = iDuenioServ;
     }
-    
-    
+
     @Override
     public void saveMascota(Mascota masco) {
-        Duenio duenioAux = iDuenioServ.findDuenio(masco.getDuenio().getIdDuenio());
-        masco.setDuenio(duenioAux);
+        if (masco.getDuenio() != null) {
+            Duenio duenioAux = iDuenioServ.findDuenio(masco.getDuenio().getIdDuenio());
+            masco.setDuenio(duenioAux);
+        }
         iMascoRepo.save(masco);
     }
 
@@ -58,7 +58,7 @@ public class MascotaService implements IMascotaService {
     @Override
     public MascoDuenioDTO findMascoDuenioDTO(Long idMascota) {
         Mascota mascoAux = iMascoRepo.findById(idMascota).orElse(null);
-        if(mascoAux == null){
+        if (mascoAux == null) {
             return null;
         } else {
             MascoDuenioDTO mdDTO = new MascoDuenioDTO();

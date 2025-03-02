@@ -27,7 +27,7 @@ public class Mascota {
 
     @Override
     public String toString() {
-        return "Mascota{" + "nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", duenio:" + duenio.getNombre() + '}';
+        return "Mascota{" + "nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + '}';
     }
     
     
