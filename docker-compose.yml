@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   clinicaveterinaria:
     build: .
@@ -27,3 +25,16 @@ services:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 10s
       retries: 10
+  clinicaveterinariafront:
+    build: "C:/Repositorios/clinicaveterinariafront/clinicaveterinariafront"
+    container_name: clinicaveterinariafront
+    restart: always
+    depends_on:
+      - clinicaveterinaria
+    ports:
+      - "4200:80"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
